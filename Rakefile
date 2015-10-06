@@ -12,7 +12,7 @@ namespace :droplet do
       region: "fra1",
       size: "512mb",
       ssh_keys: [ENV['SSHKEY_FINGERPRINT']],
-      user_data: nil,
+      user_data: File.read('user_data.sh'),
     }
     response = RestClient.post "https://#{ENV['TOKEN']}:@api.digitalocean.com/v2/droplets", options.to_json, content_type: :json
     puts response.to_str
