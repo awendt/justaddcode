@@ -15,6 +15,7 @@
 
 ## Method
 
+This tool assumes your public key is in `~/.ssh/id_rsa.pub`.
+
     export TOKEN=<your_digitalocean_api_token>
-    export SSHKEY_FINGERPRINT=`ssh-keygen -lf ~/.ssh/id_rsa.pub | awk '{printf "%s", $2}'`
     rake droplet:create
