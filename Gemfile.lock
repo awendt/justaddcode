@@ -6,6 +6,7 @@ GEM
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     mime-types (2.6.2)
+    net-ssh (3.0.1)
     netrc (0.10.3)
     rake (10.4.2)
     rest-client (1.8.0)
@@ -20,8 +21,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  net-ssh
   rake
   rest-client
 
 BUNDLED WITH
-   1.10.5
+   1.10.6

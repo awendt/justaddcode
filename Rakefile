@@ -2,7 +2,7 @@ require 'rest-client'
 require 'net/ssh'
 
 namespace :droplet do
-  desc 'Creates droplet for justaddco.de'
+  desc 'Creates droplet for the given HOSTNAME'
   task :create do
     options = {
       backups: false,
