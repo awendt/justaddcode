@@ -18,4 +18,4 @@
 This tool assumes your public key is in `~/.ssh/id_rsa.pub`.
 
     export TOKEN=<your_digitalocean_api_token>
-    rake droplet:create
+    rake droplet:create HOSTNAME=my.host.example.tld
