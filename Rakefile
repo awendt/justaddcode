@@ -1,9 +1,10 @@
 require 'rest-client'
 require 'net/ssh'
+require 'dotenv/tasks'
 
 namespace :droplet do
   desc 'Creates droplet for the given HOSTNAME'
-  task :create do
+  task create: :dotenv do
     options = {
       backups: false,
       image: "dokku",

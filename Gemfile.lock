@@ -3,6 +3,7 @@ GEM
   specs:
     domain_name (0.5.24)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.1.0)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     mime-types (2.6.2)
@@ -21,6 +22,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv
   net-ssh
   rake
   rest-client
