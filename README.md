@@ -26,3 +26,19 @@ in the form `TOKEN=<your_api_token>`
 To create a droplet:
 
     rake droplet:create HOSTNAME=my.host.example.tld
+
+## Customizing
+
+With a file named `secrets.sh`, you can customize the creation of your droplet.
+That file is being ignored by git, use it to pass sensible information like
+credentials for external services to your droplet.
+
+Here's an example:
+
+```bash
+# secrets.sh
+dokku apps:create node-js-sample
+dokku config:set node-js-sample DATABASE_URL=zzz
+```
+
+Commands in `secrets.sh` will be executed _after_ commands in `user_data.sh` are executed.
