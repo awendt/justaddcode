@@ -28,7 +28,7 @@
   rake droplet:create HOSTNAME=my.host.example.tld
   ```
 
-**Note:** For now, you have to take care of DNS yourself.
+**Note:** For now, you have to take care of DNS yourself. (Pull requests welcome!)
 
 ## Customizing
 
