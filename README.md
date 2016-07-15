@@ -15,17 +15,20 @@
 
 ## Method
 
-Assumptions:
+1. Make sure your public SSH key is in `~/.ssh/id_rsa.pub`
+2. Make sure your API token for DigitalOcean is in `.env` for [dotenv](https://github.com/bkeepers/dotenv#usage):
 
-1. your public SSH key is in `~/.ssh/id_rsa.pub`
-2. your API token for DigitalOcean is in `.env`
-in the form `TOKEN=<your_api_token>`
-(to be loaded by [dotenv](https://github.com/bkeepers/dotenv#usage))
+  ```bash
+  TOKEN=<your_api_token>
+  ```
 
+3. Create a droplet with dokku preinstalled:
 
-To create a droplet:
+  ```bash
+  rake droplet:create HOSTNAME=my.host.example.tld
+  ```
 
-    rake droplet:create HOSTNAME=my.host.example.tld
+**Note:** For now, you have to take care of DNS yourself.
 
 ## Customizing
 
