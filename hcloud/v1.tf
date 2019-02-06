@@ -1,7 +1,7 @@
 # Render a multi-part cloud-init config
 data "template_cloudinit_config" "config" {
-  gzip          = true
-  base64_encode = true
+  gzip          = false
+  base64_encode = false
 
   part {
     content_type = "text/x-shellscript"
