@@ -13,6 +13,10 @@ provider "hcloud" {
   version = "~> 1.5"
 }
 
+provider "template" {
+  version = "~> 2.0"
+}
+
 # Create a new SSH key
 resource "hcloud_ssh_key" "default" {
   name = "boskoop"
