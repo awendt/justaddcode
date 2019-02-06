@@ -5,4 +5,5 @@ resource "hcloud_server" "v1_justaddco_de" {
   image = "ubuntu-18.04"
   server_type = "cx11"
   ssh_keys = ["${hcloud_ssh_key.default.id}"]
+  user_data = "${file("./cloud-config.yml")}"
 }
