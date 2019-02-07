@@ -26,3 +26,7 @@ resource "hcloud_server" "v1_justaddco_de" {
   ssh_keys = ["${hcloud_ssh_key.default.id}"]
   user_data = "${data.template_cloudinit_config.config.rendered}"
 }
+
+output "v1.justaddco.de" {
+  value = "${hcloud_server.v1_justaddco_de.ipv4_address}"
+}
