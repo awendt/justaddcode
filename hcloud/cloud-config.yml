@@ -4,6 +4,7 @@ bootcmd:
   # http://dokku.viewdocs.io/dokku/getting-started/install/debian/
   - echo "dokku dokku/web_config boolean false" | debconf-set-selections
   - echo "dokku dokku/vhost_enable boolean true" | debconf-set-selections
+  - echo "dokku dokku/skip_key_file boolean true" | debconf-set-selections
   # - echo "dokku dokku/hostname string $YOUR_FULL_QUALIFIED_DOMAIN" | debconf-set-selections
 apt_upgrade: true
 apt_sources:
