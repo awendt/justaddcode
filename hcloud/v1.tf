@@ -1,9 +1,13 @@
+locals {
+  fqdn = "v1.justaddco.de"
+}
+
 # Render a part using a `template_file`
 data "template_file" "script" {
   template = "${file("./cloud-config.yml")}"
 
   vars {
-    fqdn = "v1.justaddco.de"
+    fqdn = "${local.fqdn}"
   }
 }
 
@@ -30,7 +34,7 @@ data "template_cloudinit_config" "config" {
 # Create a new server running debian
 resource "hcloud_server" "v1_justaddco_de" {
   location = "fsn1"
-  name = "v1.justaddco.de"
+  name = "${local.fqdn}"
   image = "ubuntu-18.04"
   server_type = "cx11"
   ssh_keys = ["${hcloud_ssh_key.default.id}"]
