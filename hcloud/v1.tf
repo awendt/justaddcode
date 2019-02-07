@@ -17,11 +17,6 @@ data "template_cloudinit_config" "config" {
   gzip          = false
   base64_encode = false
 
-  part {
-    content_type = "text/x-shellscript"
-    content      = "${file("./cloud-init/apt-configure-dokku.sh")}"
-  }
-
   # Main cloud-config configuration file.
   part {
     filename     = "init.cfg"
