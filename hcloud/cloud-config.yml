@@ -8,7 +8,7 @@ bootcmd:
   # - echo "dokku dokku/hostname string $YOUR_FULL_QUALIFIED_DOMAIN" | debconf-set-selections
 apt_upgrade: true
 apt_sources:
-- source: "deb https://packagecloud.io/dokku/dokku/ubuntu/ trusty main"
+- source: "deb https://packagecloud.io/dokku/dokku/ubuntu/ bionic main"
   key: |
    -----BEGIN PGP PUBLIC KEY BLOCK-----
    Version: GnuPG v1.4.11 (GNU/Linux)
