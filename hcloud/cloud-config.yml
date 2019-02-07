@@ -1,4 +1,10 @@
 #cloud-config
+bootcmd:
+  # All options documented here:
+  # http://dokku.viewdocs.io/dokku/getting-started/install/debian/
+  - echo "dokku dokku/web_config boolean false" | debconf-set-selections
+  - echo "dokku dokku/vhost_enable boolean true" | debconf-set-selections
+  # - echo "dokku dokku/hostname string $YOUR_FULL_QUALIFIED_DOMAIN" | debconf-set-selections
 apt_upgrade: true
 apt_sources:
 - source: "deb https://packagecloud.io/dokku/dokku/ubuntu/ trusty main"
@@ -68,16 +74,6 @@ apt_sources:
    =laU4
    -----END PGP PUBLIC KEY BLOCK-----
   filename: dokku.list
-
-debconf_selections: |
-
-    # All options documented here:
-    # http://dokku.viewdocs.io/dokku/getting-started/install/debian/
-
-    dokku dokku/web_config boolean false
-    dokku dokku/vhost_enable boolean true
-    # set the domain name of the new Dokku server
-    # dokku dokku/hostname string $YOUR_FULL_QUALIFIED_DOMAIN
 
 packages:
   - dokku
