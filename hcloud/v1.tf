@@ -1,4 +1,14 @@
-# Render a multi-part cloud-init config
+# Render a part using a `template_file`
+data "template_file" "script" {
+  template = "${file("./cloud-config.yml")}"
+
+  vars {
+    fqdn = "v1.justaddco.de"
+  }
+}
+
+# Render a multi-part cloud-init config making use of the part
+# above, and other source files
 data "template_cloudinit_config" "config" {
   gzip          = false
   base64_encode = false
@@ -12,7 +22,7 @@ data "template_cloudinit_config" "config" {
   part {
     filename     = "init.cfg"
     content_type = "text/cloud-config"
-    content      = "${file("./cloud-config.yml")}"
+    content      = "${data.template_file.script.rendered}"
   }
 
 }
