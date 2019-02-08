@@ -3,8 +3,9 @@
 #############################################
 
 # Set the variable value in *.tfvars file
-# or using -var="do_token=..." CLI option
+# or using -var="hcloud_token=..." CLI option
 variable "hcloud_token" {}
+variable "hostname" {}
 
 # Configure the Hetzner Cloud Provider
 provider "hcloud" {
