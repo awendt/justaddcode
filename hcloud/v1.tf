@@ -25,6 +25,11 @@ data "template_cloudinit_config" "config" {
     content      = "${file("./cloud-init/dokku-lets-encrypt.sh")}"
   }
 
+  part {
+    content_type = "text/x-shellscript"
+    content      = "${file("./cloud-init/secrets.sh")}"
+  }
+
 }
 
 # Create a new server running debian
