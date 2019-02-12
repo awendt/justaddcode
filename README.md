@@ -4,34 +4,34 @@
 >
 > — Chad Fowler, [Immutable Infrastructure and Disposable Components](http://chadfowler.com/blog/2013/06/23/immutable-deployments/)
 
-# Recipe
+This builds a virtual server that accepts deployments via `git push`.
+It runs the Docker-powered mini-Heroku [Dokku](https://github.com/dokku/dokku)
+on a Hetzner Cloud project.
 
-…for a server that accepts deployments via `git push`
+## Getting started
 
-## Ingredients
+### Prerequisites
 
-- Docker powered mini-Heroku [Dokku](https://github.com/dokku/dokku)
-- a Hetzner Cloud project
+This is the software you need:
 
-## Method
+1. GNU Make
+2. [Terraform](https://www.terraform.io/) 0.11.10 or newer
 
-1. Make sure your public SSH key is in `~/.ssh/id_rsa.pub`
-2. Make sure your API token for a Hetzner Cloud project is in `terraform.tfvars`:
+### Building the project
 
-  ```hcl
-  hcloud_token = "<your_api_token>"
-  ```
+Once you have all required software, in the root directory of this project,
+run this command and follow the instructions:
 
-3. Create a server with dokku preinstalled:
-
-  ```bash
-  make HOSTNAME=my.host.example.tld
-  ```
+```bash
+$ make HOSTNAME=my.host.example.tld
+```
 
 ### What does this do?
 
-- copies your public SSH key to the cloud project (so you can log in)
-- creates a server "v1"
+- asks for your Hetzner Cloud API token and stores it in `terraform.tfvars`
+- copies your public SSH key `~/.ssh/id_rsa.pub` to the cloud project
+  (so you can log in)
+- creates a server
 - installs dokku + dependencies on that server
 - installs the [dokku-letsencrypt plugin](https://github.com/dokku/dokku-letsencrypt)
 
@@ -51,3 +51,11 @@ dokku config:set node-js-sample DATABASE_URL=zzz
 ```
 
 Commands in `secrets.sh` will be executed as the very last step.
+
+## Removing everything
+
+To remove all this, run:
+
+```
+$ terraform destroy
+```
