@@ -11,7 +11,7 @@ variable "hostname" {}
 provider "hcloud" {
   token = "${var.hcloud_token}"
 
-  version = "~> 1.5"
+  version = "~> 1.13.0"
 }
 
 provider "template" {
