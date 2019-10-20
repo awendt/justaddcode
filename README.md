@@ -15,7 +15,7 @@ on a Hetzner Cloud project.
 This is the software you need:
 
 1. GNU Make
-2. [Terraform](https://www.terraform.io/) 0.11.10 or newer
+2. [Terraform](https://www.terraform.io/) 0.12 or newer
 
 ### Building the project
 

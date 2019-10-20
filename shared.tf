@@ -13,12 +13,6 @@ variable "hostname" {
 # Configure the Hetzner Cloud Provider
 provider "hcloud" {
   token = var.hcloud_token
-
-  version = "~> 1.13.0"
-}
-
-provider "template" {
-  version = "~> 2.0"
 }
 
 # Create a new SSH key
